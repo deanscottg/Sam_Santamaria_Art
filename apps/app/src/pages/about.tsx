@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import AboutScrollNav from "../../components/AboutScrollNav";
 import { useState } from "react";
 import SailorMoonPopUp from "../../components/SailorMoonPopUp";
@@ -10,7 +11,7 @@ const About = () => {
 		<div className="page-container">
 			<h1 className="py-10 text-center">About the Artist</h1>
 			<AboutScrollNav />
-			<div className="py-20">
+			<div className="py-20 max-w-4xl mx-auto px-6">
 				<div
 					id="artistStatment"
 					className=" pt-10 text-center border-b-2 border-black"
@@ -72,24 +73,42 @@ const About = () => {
 					className=" text-center border-b-2 border-black pb-8"
 				>
 					<h2 className="text-2xl font-bold italic pt-6 pb-10">Publications</h2>
-					<p className="p-4">
-						SAILOR MOON - Stories, Poems, Photographs, 84 pp full color,
-						published by AuthorHOUSE, 2019
-						<p>
-							<Link
-								onMouseEnter={() => setIsOpen(true)}
-								onMouseLeave={() => setIsOpen(false)}
-								className="painting-nav-link "
-								href="https://www.amazon.com/Sailor-Moon-Events-Comic-Sinister-ebook/dp/B07Z4KR5VN"
+					<div className="p-4 flex flex-col items-center gap-4">
+						<div className="flex flex-col md:flex-row items-center gap-6 max-w-2xl">
+							<motion.div
+								whileHover={{ scale: 1.05 }}
+								className="flex-shrink-0"
 							>
-								Learn more about it
-							</Link>
+								<Image
+									src="/sailorMoonCover.jpg"
+									alt="Sailor Moon Book Cover"
+									width={150}
+									height={200}
+									className="rounded shadow-lg"
+								/>
+							</motion.div>
+							<div className="text-left">
+								<p className="font-semibold mb-2">
+									SAILOR MOON - Stories, Poems, Photographs
+								</p>
+								<p className="text-sm text-gray-700 mb-3">
+									84 pp full color, published by AuthorHOUSE, 2019
+								</p>
+								<Link
+									className="painting-nav-link inline-block font-bold"
+									href="https://www.amazon.com/Sailor-Moon-Events-Comic-Sinister-ebook/dp/B07Z4KR5VN"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									View on Amazon
+								</Link>
+							</div>
+						</div>
+						<p className="pt-4">
+							SARI MANOK – Legend, Art &amp; Haiku Lyric, 48 pp full color, soon
+							to be published
 						</p>
-						{isOpen && <SailorMoonPopUp />}
-						<br></br>
-						SARI MANOK – Legend, Art &amp; Haiku Lyric, 48 pp full color, soon
-						to be published
-					</p>
+					</div>
 				</div>
 				<div id="professional" className=" text-center pb-10">
 					<h2 className="text-2xl font-bold italic pt-6 pb-10">

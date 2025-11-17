@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const GalleryDropDown = () => {
 	const router = useRouter();
 	const [isOpen, setIsOpen] = useState(false);
+	const dropdownRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		setIsOpen(false);
@@ -13,55 +14,68 @@ const GalleryDropDown = () => {
 	useEffect(() => {
 		setIsOpen(false);
 	}, [router.pathname]);
+
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+				setIsOpen(false);
+			}
+		};
+
+		if (isOpen) {
+			document.addEventListener("mousedown", handleClickOutside);
+		}
+
+		return () => {
+			document.removeEventListener("mousedown", handleClickOutside);
+		};
+	}, [isOpen]);
+
 	return (
-		<div>
+		<div ref={dropdownRef}>
 			<button
 				onClick={() => setIsOpen((prev) => !prev)}
-				className="nav-link-btn flex flex-row"
+				className="nav-link-btn flex flex-row items-center gap-1"
 			>
 				Gallery
 				{isOpen ? (
-					<motion.svg
-						whileHover={{ y: -3 }}
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						fill="currentColor"
-						className="w-5 h-5 pt-.75 text-center"
+					<motion.span
+						initial={{ rotate: 0 }}
+						animate={{ rotate: 180 }}
+						className="text-sm"
 					>
-						<path
-							fillRule="evenodd"
-							d="M12 20.25a.75.75 0 01-.75-.75V6.31l-5.47 5.47a.75.75 0 01-1.06-1.06l6.75-6.75a.75.75 0 011.06 0l6.75 6.75a.75.75 0 11-1.06 1.06l-5.47-5.47V19.5a.75.75 0 01-.75.75z"
-							clipRule="evenodd"
-						/>
-					</motion.svg>
+						▾
+					</motion.span>
 				) : (
-					<motion.svg
-						whileHover={{ y: 3 }}
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 24 24"
-						fill="currentColor"
-						className="w-5 h-5 pt-.75"
+					<motion.span
+						initial={{ rotate: 180 }}
+						animate={{ rotate: 0 }}
+						className="text-sm"
 					>
-						<path
-							fillRule="evenodd"
-							d="M12 3.75a.75.75 0 01.75.75v13.19l5.47-5.47a.75.75 0 111.06 1.06l-6.75 6.75a.75.75 0 01-1.06 0l-6.75-6.75a.75.75 0 111.06-1.06l5.47 5.47V4.5a.75.75 0 01.75-.75z"
-							clipRule="evenodd"
-						/>
-					</motion.svg>
+						▾
+					</motion.span>
 				)}
 			</button>
-			{isOpen && (
-				<div className="bg-transparent absolute top-20 text-gray-800 flex flex-col items start rounded-lg p-2">
-					<Link className="gallery-dropdown-item" href="/gallery/painting">
-						{" "}
-						Paintings
-					</Link>
-					<Link className="gallery-dropdown-item" href="/gallery/photograph">
-						{" "}
-						Photography
-					</Link>
-				</div>
-			)}
+			<AnimatePresence>
+				{isOpen && (
+					<motion.div
+						initial={{ opacity: 0, y: -10 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: -10 }}
+						transition={{ duration: 0.2, ease: "easeOut" }}
+						className="bg-gray-100 border border-gray-300 shadow-lg absolute top-20 text-gray-700 flex flex-col items start rounded-lg p-3"
+					>
+						<Link className="gallery-dropdown-item" href="/gallery/painting">
+							{" "}
+							Paintings
+						</Link>
+						<Link className="gallery-dropdown-item" href="/gallery/photograph">
+							{" "}
+							Photography
+						</Link>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 };

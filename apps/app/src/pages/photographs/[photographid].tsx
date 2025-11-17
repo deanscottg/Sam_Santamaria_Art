@@ -91,6 +91,7 @@ const PhotgraphId = ({
 						h={"75%"}
 						slideSize={"100%"}
 						withControls
+						loop
 						// classNames={classes}
 					>
 						{/* <div className="flex flex-col items-center"> */}

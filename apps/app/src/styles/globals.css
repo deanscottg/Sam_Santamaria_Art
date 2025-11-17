@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,600;1,6..96,700&family=Lobster+Two&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 @layer tailwind {
 	@tailwind base;
@@ -15,22 +16,22 @@
     @apply font-josefin;
   } */
 	body {
-		@apply min-h-screen flex flex-col bg-gradient-to-br from-gray-400 to-gray-200 font-josefin;
+		@apply min-h-screen flex flex-col bg-gradient-to-br from-gray-400 via-gray-200 to-gray-100 font-josefin;
 	}
 }
 
 @layer components {
 	.painting-nav-link {
-		@apply py-2 pl-3 pr-4 text-lg text-black hover:underline hover:text-indigo-500  md:bg-transparent md:text-black md:p-0 dark:text-white;
+		@apply py-2 pl-3 pr-4 text-lg text-gray-700 hover:underline hover:text-gray-900 hover:font-bold hover:scale-105 md:bg-transparent md:p-0 font-cormorant font-semibold transition-all duration-200;
 	}
 	.footer-icon-btn {
-		@apply hover:scale-110 duration-300;
+		@apply hover:scale-110 duration-300 opacity-70 hover:opacity-100 transition-all;
 	}
 	.nav-link-btn {
-		@apply bg-transparent text-center hover:text-indigo-400 hover:underline hover:font-extrabold hover:scale-125 text-white text-lg font-bold py-2 px-4 rounded-full;
+		@apply bg-transparent text-center hover:text-gray-900 hover:underline hover:shadow-[0_4px_12px_rgba(255,255,255,0.9),0_2px_6px_rgba(255,255,255,0.7)] text-gray-700 text-lg font-cormorant font-semibold py-2 px-4 rounded-full transition-all duration-200;
 	}
 	.gallery-dropdown-item {
-		@apply flex justify-between text-white text-lg hover:text-indigo-400 hover:font-extrabold  hover:italic border-r-transparent relative rounded-lg;
+		@apply flex justify-between text-gray-700 text-lg font-cormorant font-semibold hover:text-gray-900 hover:shadow-[0_4px_12px_rgba(255,255,255,0.9),0_2px_6px_rgba(255,255,255,0.7)] hover:bg-gray-200 border-r-transparent relative rounded-lg px-3 py-2 transition-all duration-200;
 	}
 	.art-card {
 		@apply flex flex-col items-center hover:scale-105 duration-150;

@@ -14,6 +14,7 @@ module.exports = {
       bodoni: ["Bodoni Moda", "serif"],
       lobster: ["Lobster Two", "cursive"],
       josefin: ["Josefin Sans", "sans-serif"],
+      cormorant: ["Cormorant Garamond", "serif"],
     },
   },
   plugins: [require("@tailwindcss/forms")],

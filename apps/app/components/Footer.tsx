@@ -1,10 +1,10 @@
 import Image from "next/image";
 const Footer = () => {
 	return (
-		<footer className="flex justify-center items-center relative pt-12 ">
-			<p>&#169; Copyright Sam Santamaria Art 2023</p>
+		<footer className="flex justify-center items-center relative pt-12 pb-6 mt-auto bg-transparent">
+			<p className="text-gray-700 text-sm">&#169; Copyright Sam Santamaria Art 2023</p>
 
-			<div className="absolute flex right-0 space-x-2">
+			<div className="absolute flex right-4 space-x-3">
 				<Image
 					className='footer-icon-btn'
 					src="/facebook.png"
