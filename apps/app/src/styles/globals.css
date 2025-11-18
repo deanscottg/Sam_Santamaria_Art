@@ -34,10 +34,17 @@
 		@apply flex justify-between text-gray-700 text-lg font-cormorant font-semibold hover:text-gray-900 hover:shadow-[0_4px_12px_rgba(255,255,255,0.9),0_2px_6px_rgba(255,255,255,0.7)] hover:bg-gray-200 border-r-transparent relative rounded-lg px-3 py-2 transition-all duration-200;
 	}
 	.art-card {
-		@apply flex flex-col items-center hover:scale-105 duration-150;
+		@apply flex flex-col items-center hover:scale-105 duration-150 h-full;
 	}
 	.art-card-grid {
-		@apply pt-28 m-auto grid grid-cols-3 gap-12;
+		@apply pt-28 mx-auto px-8 md:px-16 lg:px-24 xl:px-32 max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16;
+	}
+	.art-card-frame {
+		@apply w-full aspect-square bg-white p-6 shadow-lg flex items-center justify-center overflow-hidden;
+		border: 12px solid #374151;
+		box-shadow: 
+			0 4px 6px rgba(0, 0, 0, 0.1),
+			inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 	}
 	.page-container {
 		@apply text-center space-y-3;

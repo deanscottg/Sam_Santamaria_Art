@@ -10,19 +10,21 @@ type Props = {
 const PhotoCard = ({ photoData }: Props) => {
 	return (
 		<div className="art-card">
-			<Link key={photoData._id} href={"/photographs/" + photoData._id}>
-				{photoData.images && photoData.images[0] && (
-					<NextImage
-						alt={photoData.name}
-						src={photoData.images[0].asset.url}
-						width={photoData.images[0].asset.metadata.dimensions.width}
-						height={photoData.images[0].asset.metadata.dimensions.height}
-						placeholder="blur"
-						blurDataURL={photoData.images[0].asset.metadata.lqip}
-					/>
-				)}
-				<h2>{photoData.name}</h2>
-				<p>This is all the info about this photograph</p>
+			<Link key={photoData._id} href={"/photographs/" + photoData._id} className="flex flex-col items-center w-full h-full">
+				<div className="art-card-frame flex-shrink-0 group">
+					{photoData.images && photoData.images[0] && (
+						<NextImage
+							alt={photoData.name}
+							src={photoData.images[0].asset.url}
+							width={photoData.images[0].asset.metadata.dimensions.width}
+							height={photoData.images[0].asset.metadata.dimensions.height}
+							placeholder="blur"
+							blurDataURL={photoData.images[0].asset.metadata.lqip}
+							className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-125"
+						/>
+					)}
+				</div>
+				<h2 className="text-lg font-cormorant font-bold mt-4">{photoData.name}</h2>
 			</Link>
 		</div>
 	);
