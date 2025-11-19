@@ -20,7 +20,7 @@ const PhotoCard = ({ photoData }: Props) => {
 							height={photoData.images[0].asset.metadata.dimensions.height}
 							placeholder="blur"
 							blurDataURL={photoData.images[0].asset.metadata.lqip}
-							className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-125"
+							className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-110"
 						/>
 					)}
 				</div>

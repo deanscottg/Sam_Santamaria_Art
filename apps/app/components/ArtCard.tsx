@@ -12,7 +12,7 @@ const ArtCard = ({ paintingData, seriesId }: Props) => {
 	return (
 		<div className="art-card">
 			<Link key={paintingData._id} href={"/paintings/" + paintingData._id} className="flex flex-col items-center w-full h-full">
-				<div className="art-card-frame flex-shrink-0">
+				<div className="art-card-frame flex-shrink-0 group">
 					{paintingData.images && paintingData.images[0] && (
 						<NextImage
 							alt={paintingData.name}
@@ -21,7 +21,7 @@ const ArtCard = ({ paintingData, seriesId }: Props) => {
 							height={paintingData.images[0].asset.metadata.dimensions.height}
 							placeholder="blur"
 							blurDataURL={paintingData.images[0].asset.metadata.lqip}
-							className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-125"
+							className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-110"
 						/>
 					)}
 				</div>

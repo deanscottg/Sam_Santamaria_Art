@@ -22,7 +22,7 @@
 
 @layer components {
 	.painting-nav-link {
-		@apply py-2 pl-3 pr-4 text-lg text-gray-700 hover:underline hover:text-gray-900 hover:font-bold hover:scale-105 md:bg-transparent md:p-0 font-cormorant font-semibold transition-all duration-200;
+		@apply py-2 pl-3 pr-4 text-xl text-gray-700 hover:underline hover:text-gray-900 hover:font-bold hover:scale-105 md:bg-transparent md:p-0 font-cormorant font-semibold transition-all duration-200;
 	}
 	.footer-icon-btn {
 		@apply hover:scale-110 duration-300 opacity-70 hover:opacity-100 transition-all;

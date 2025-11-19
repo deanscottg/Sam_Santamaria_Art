@@ -80,7 +80,7 @@ const PaintingId = ({
 				sizes={"100vw"}
 				placeholder="blur"
 				blurDataURL={image.asset.metadata.lqip}
-				className="pt-24 object-cover h-full w-full"
+				className="pt-24 object-contain h-full w-full"
 			/>
 		</Carousel.Slide>
 	));
@@ -122,7 +122,7 @@ const PaintingId = ({
 			</p>
 			<p>Dimensions offered: </p>
 			<ul>
-				{paintingsData.dimensions.map((dimension) => (
+				{paintingsData.dimensions && paintingsData.dimensions.map((dimension) => (
 					<p key={paintingsData.name}>
 						{dimension.height} x {dimension.width} x {dimension.depth} (inches)
 					</p>

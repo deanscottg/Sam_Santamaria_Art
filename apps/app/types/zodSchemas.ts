@@ -87,7 +87,7 @@ export const metadataSchema = z.object({
 	hasAlpha: z.boolean(),
 	isOpaque: z.boolean(),
 	lqip: z.string(),
-	palette: paletteSchema,
+	palette: paletteSchema.optional(),
 });
 
 export const assetSchema = z.object({
@@ -119,7 +119,7 @@ export const paintingSchema = z.object({
 	_type: z.string().optional(),
 	_updatedAt: z.string().optional(),
 	name: z.string(),
-	dimensions: z.array(dimensionSchema),
+	dimensions: z.array(dimensionSchema).nullable().default([]),
 	images: z.array(imageSchema).optional(),
 });
 
