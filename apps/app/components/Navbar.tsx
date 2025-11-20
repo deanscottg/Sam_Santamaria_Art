@@ -26,8 +26,19 @@ const Navbar = () => {
 							whileHover={{ x: -3 }}
 							className="nav-link-btn flex items-center"
 							onClick={() => route.back()}
+							aria-label="Go back"
 						>
-							← Back
+							<svg 
+								xmlns="http://www.w3.org/2000/svg" 
+								viewBox="0 0 32 32" 
+								fill="currentColor"
+								className="w-7 h-7"
+							>
+								<path d="M16 6 L8 16 L16 26 L14 26 L6 16 L14 6 Z"/>
+								<path d="M8 15 L28 15 L28 17 L8 17 Z"/>
+								<circle cx="28" cy="16" r="1.5"/>
+								<path d="M6 14 Q4 16 6 18" fill="none" stroke="currentColor" strokeWidth="0.5"/>
+							</svg>
 						</motion.button>
 						<Link href="/" className="nav-link-btn">
 							Home
