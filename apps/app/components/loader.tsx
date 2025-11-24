@@ -4,11 +4,18 @@ import LoaderSVG from "./svgs/LoaderSVG";
 
 const loader = () => {
   return (
-    <div className="flex flex-col h-screen w-full  text-black text-sm ">
-      <div>
-        <LoaderSVG className="h-[10rem] w-[10rem]" />
+    <div className="flex items-center justify-center h-screen w-full">
+      <div className="text-center">
+        <div className="flex justify-center mb-6">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-gray-700"></div>
+        </div>
+        <h2 className="text-3xl font-cormorant font-bold text-gray-800 mb-2">
+          Artistically Loading
+        </h2>
+        <p className="text-lg font-cormorant text-gray-600">
+          Please wait a moment...
+        </p>
       </div>
-      <p className="text-center text-lg">Loading Art for you!</p>
     </div>
   );
 };

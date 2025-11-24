@@ -57,7 +57,7 @@ const FeaturedItemsBanner = ({ featuredPaintings }: FeaturedItemsBannerProps) =>
 
 			<div className="text-center mt-3">
 				<Link
-					className="text-sm font-cormorant font-semibold text-gray-700 hover:text-gray-900 hover:underline transition-colors"
+					className="text-lg font-cormorant font-semibold text-gray-700 hover:text-gray-900 hover:underline transition-colors"
 					href="/gallery"
 				>
 					View All Works →

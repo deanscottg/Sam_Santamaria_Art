@@ -15,7 +15,14 @@ const formSchema = zod.object({
 		.string({
 			required_error: "Email is required",
 		})
-		.email("Invalid Email Address"),
+		.email("Invalid Email Address")
+		.refine(
+			(email) => {
+				const commonTypos = ['@gmail.co', '@yahoo.co', '@hotmail.co', '@outlook.co', '@icloud.co'];
+				return !commonTypos.some(typo => email.toLowerCase().endsWith(typo));
+			},
+			{ message: "Did you mean @gmail.com, @yahoo.com, etc.?" }
+		),
 	message: zod.string({
 		required_error: "Messsage is required",
 	}),
@@ -64,14 +71,19 @@ export const ContactForm = ({ artworks, preselectedArtwork }: ContactFormProps) 
 		// Set loading state
 		setIsSubmitting(true);
 
-		const emailResponse = await axios.post("/api/hello", {
-			...values,
-		});
-		// Set success page
-		console.log(emailResponse);
-		// {
-		emailResponse && router.push("/emailSuccessPage");
-		// }
+		try {
+			const emailResponse = await axios.post("/api/hello", {
+				...values,
+			});
+			console.log(emailResponse);
+			// Navigate to success page
+			router.push("/emailSuccessPage");
+		} catch (error) {
+			console.error("Error sending email:", error);
+			setIsSubmitting(false);
+			// You could show an error message here
+			alert("Failed to send message. Please try again.");
+		}
 	};
 
 	const onChange = (

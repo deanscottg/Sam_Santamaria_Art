@@ -51,8 +51,10 @@ export default function Home({ featuredPaintings }: { featuredPaintings: Feature
 		<div>
 			<div className="">
 				<h1 className="text-center  py-2">Sam Santamaria Art</h1>
-				<h2 className="text-center text-3xl">Fine Art out of Tampa, Florida</h2>
-				<p className="text-center tracking-wider">
+				<h2 className="text-center font-cormorant font-bold text-3xl">
+					Fine Art out of Tampa, Florida
+				</h2>
+				<p className="text-center text-xl font-cormorant font-medium tracking-wider">
 					Artist | Photographer | Author{" "}
 				</p>
 				<p className="text-center">
