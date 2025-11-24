@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Input from "./Input";
 import TextArea from "./Textarea";
 import { validate } from "../utils/validate";
@@ -19,27 +19,36 @@ const formSchema = zod.object({
 	message: zod.string({
 		required_error: "Messsage is required",
 	}),
+	artwork: zod.string().optional(),
 });
 
 interface IValues {
 	name: string;
 	email: string;
 	message: string;
+	artwork: string;
 }
 interface IErrors extends Partial<IValues> {}
-
-export const ContactForm = () => {
+interface ContactFormProps {
+	artworks: Array<{ id: string; name: string; type: string }>;
+	preselectedArtwork?: string;
+}
+export const ContactForm = ({ artworks, preselectedArtwork }: ContactFormProps) => {
 	const [values, setValues] = useState<IValues>({
 		name: "",
 		email: "",
 		message: "",
+		artwork: preselectedArtwork || "",
 	});
+
+	useEffect(() => {
+		if(preselectedArtwork){
+			setValues((prev) => ({ ...prev, artwork: preselectedArtwork }))
+		}
+	}, [preselectedArtwork]);
+
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [errors, setErrors] = useState<ZodError | null>(null);
-	// const [loading, setLoading] = useState(false);
-	//   const [name, setName] = useState("");
-	//   const [email, setEmail] = useState("");
-	//   const [message, setMessage] = useState("");
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -69,17 +78,25 @@ export const ContactForm = () => {
 		e:
 			| React.ChangeEvent<HTMLInputElement>
 			| React.ChangeEvent<HTMLTextAreaElement>
+			| React.ChangeEvent<HTMLSelectElement>
 	) => {
 		setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 	};
 
 	if (isSubmitting) return <SubmitLoader />;
 	return (
-		<div className="w-full h-screen">
-			<div className="px-3 pt-10 ">
+		<div className="w-full min-h-screen pt-20">
+			<div className="max-w-2xl mx-auto px-8">
+				<h2 className="text-6xl font-cormorant font-bold text-gray-800 text-center mb-3">
+					Get in Touch
+				</h2>
+				<p className="text-center text-gray-600 mb-12 font-cormorant text-xl">
+					Interested in a piece? Have a question? I'd love to hear from you.
+				</p>
+				
 				<form
 					onSubmit={handleSubmit}
-					className="flex flex-col items-center mx-auto w-1/3"
+					className="bg-white border-8 border-gray-700 p-10 shadow-xl"
 				>
 					<Input
 						errors={errors}
@@ -99,6 +116,28 @@ export const ContactForm = () => {
 						placeholder="Email Address"
 						label="Your Email"
 					/>
+					<div className="w-full mb-6">
+						<label 
+							htmlFor="artwork" 
+							className="block mb-2 text-lg font-medium text-gray-800 font-cormorant tracking-wide"
+						>
+							Artwork of Interest (Optional)
+						</label>
+						<select
+							id="artwork"
+							name="artwork"
+							value={values.artwork}
+							onChange={onChange}
+							className="w-full px-4 py-3 border-2 border-gray-300 bg-gray-50 text-gray-800 font-cormorant focus:outline-none focus:border-gray-700 focus:ring-2 focus:ring-gray-700 transition-all"
+						>
+							<option value="">— Select an artwork (optional) —</option>
+							{artworks.map((artwork) => (
+								<option key={artwork.id} value={artwork.name}>
+									{artwork.name} ({artwork.type})
+								</option>
+							))}
+						</select>
+					</div>
 					<TextArea
 						errors={errors}
 						value={values.message}
@@ -110,34 +149,14 @@ export const ContactForm = () => {
 					/>
 
 					<button
-						className="w-full py-2 mt-6 lext-lg bg-gray-500 rounded-md active:bg-indigo-500 hover:bg-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none"
+						className="w-full py-4 mt-8 text-lg font-cormorant font-semibold bg-gray-700 text-white hover:bg-gray-800 active:bg-gray-900 focus:ring-4 focus:ring-gray-400 outline-none transition-all duration-200"
 						type="submit"
 					>
-						Submit
+						Send Message
 					</button>
 				</form>
 			</div>
 		</div>
-		// <form className="flex flex-col w-full mx-auto" onSubmit={onSubmit}>
-		//   <input
-		//     type="text"
-		//     placeholder="Name"
-		//     value={name}
-		//     onChange={(e) => setName(e.target.value)}
-		//   />
-		//   <input
-		//     type="email"
-		//     placeholder="Email"
-		//     value={email}
-		//     onChange={(e) => setEmail(e.target.value)}
-		//   />
-		//   <textarea
-		//     placeholder="Your Message"
-		//     value={message}
-		//     onChange={(e) => setMessage(e.target.value)}
-		//   />
-		//   <button type="submit">Submit</button>
-		// </form>
 	);
 };
 

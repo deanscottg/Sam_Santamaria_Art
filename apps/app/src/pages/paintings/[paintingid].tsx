@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import NextImage from "next/image";
+import Link from "next/link";
 import { z } from "zod";
 import { nextSanityClient } from "../../../lib/client";
 import { Painting } from "../../../types/types";
@@ -128,8 +129,13 @@ const PaintingId = ({
 					</p>
 				))}
 			</ul>
+			<div className="mt-8">
+			<Link href={`/contact?artwork=${encodeURIComponent(paintingsData.name)}`} 
+			className="inline-block px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors">
+				<button>Inquire About This Painting</button>
+			</Link>
 		</div>
-		// </div>
+		 </div>
 	);
 };
 

@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import NextImage from "next/image";
 import Image from "next/image";
+import Link from "next/link";
 import { z } from "zod";
 import { nextSanityClient } from "../../../lib/client";
 import { Photo } from "../../../types/types";
@@ -120,11 +121,15 @@ const PhotgraphId = ({
 					</p>
 				))}
 			</ul>
-			{/* <p>
-					{" "}
-					{photosData.dimensions.height} x {photosData.dimensions.width} x{" "}
-					{photosData.dimensions.depth} (inches){" "}
-				</p> */}
+			
+			<div className="mt-8">
+				<Link 
+					href={`/contact?artwork=${encodeURIComponent(photosData.name)}`}
+					className="inline-block px-6 py-3 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors"
+				>
+					Inquire About This Photograph
+				</Link>
+			</div>
 		</div>
 	);
 };

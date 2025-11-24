@@ -13,6 +13,9 @@ import {
 } from "@aws-sdk/client-ses";
 import { z } from "zod";
 
+const RECIPIENT_EMAIL = process.env.CONTACT_EMAIL || "me@deanscottg.net";
+const SENDER_EMAIL = process.env.SENDER_EMAIL || "me@email.deanscottg.net";
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
@@ -24,6 +27,7 @@ export default async function handler(
       name: z.string(),
       email: z.string().email(),
       message: z.string(),
+      artwork: z.string().optional(),
     })
     .parse(req.body);
 
@@ -38,12 +42,16 @@ export default async function handler(
 
   const rawEmail = render(Welcome({ ...data }));
   const paramsForEmail: SendEmailCommandInput = {
-    Destination: { ToAddresses: ["me@deanscottg.net"] },
+    Destination: { ToAddresses: [RECIPIENT_EMAIL] },
     Message: {
       Body: { Html: { Data: rawEmail.html } },
-      Subject: { Data: "test Email" },
+      Subject: { 
+        Data: data.artwork
+          ? `Inquiry about "${data.artwork}" from ${data.name}`
+          : `General Inquiry from ${data.name}` 
+      },
     },
-    Source: "me@email.deanscottg.net",
+    Source: SENDER_EMAIL,
   };
 
   const emailResponse = await client.send(new SendEmailCommand(paramsForEmail));
