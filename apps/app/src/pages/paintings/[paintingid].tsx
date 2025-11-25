@@ -119,7 +119,7 @@ const PaintingId = ({
 				)} */}
 
 			<p className="italic pt-8">
-				Availbale as: Original | Limited Edition Print{" "}
+				Available as: Original | Limited Edition Print{" "}
 			</p>
 			<p>Dimensions offered: </p>
 			<ul>

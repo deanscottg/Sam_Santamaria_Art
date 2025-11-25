@@ -13,7 +13,7 @@ const loader = () => {
           Artistically Loading
         </h2>
         <p className="text-lg font-cormorant text-gray-600">
-          Please wait a moment...
+          Please bear with us...
         </p>
       </div>
     </div>

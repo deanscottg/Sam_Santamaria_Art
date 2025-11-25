@@ -94,7 +94,7 @@ const Seriesid = ({ seriesData }: { seriesData: SeriesWithId }) => {
 	return (
 		<div className="page-container">
 			<h1>{seriesData.name}</h1>
-			<p>Brief description of {seriesData.name}</p>
+
 			<div className="art-card-grid">
 				{paginatedPaintings.map((painting, i) => (
 					<ArtCard seriesId={seriesData._id} paintingData={painting} key={i} />
