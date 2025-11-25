@@ -46,10 +46,7 @@ const Photograph = ({
 	return (
 		<div className="page-container">
 			<h1 className="font-cormorant">Photo Journeys</h1>
-			<p className="text-center font-cormorant text-lg">
-				A paragraph detailing the process of how I do my photography. I use a
-				very good camera and find interesting things to shoot. I love it.
-			</p>
+
 			<div className="art-card-grid">
 				{photoData.map((photo) => {
 					return <PhotoCard key={photo._id} photoData={photo} />;
