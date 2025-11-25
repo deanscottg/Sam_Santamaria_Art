@@ -32,10 +32,10 @@ const GalleryDropDown = () => {
 	}, [isOpen]);
 
 	return (
-		<div ref={dropdownRef}>
+		<div ref={dropdownRef} className="relative w-full md:w-auto">
 			<button
 				onClick={() => setIsOpen((prev) => !prev)}
-				className="nav-link-btn flex flex-row items-center gap-1"
+				className="nav-link-btn flex flex-row items-center justify-center gap-1 w-full md:w-auto"
 			>
 				Gallery
 				{isOpen ? (
@@ -63,7 +63,7 @@ const GalleryDropDown = () => {
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -10 }}
 						transition={{ duration: 0.2, ease: "easeOut" }}
-						className="bg-gray-100 border border-gray-300 shadow-lg absolute top-20 text-gray-700 flex flex-col items start rounded-lg p-3"
+						className="bg-gray-100 border border-gray-300 shadow-lg absolute left-0 md:left-auto md:top-20 text-gray-700 flex flex-col items-start rounded-lg p-3 w-full md:w-auto z-50"
 					>
 						<Link className="gallery-dropdown-item" href="/gallery/painting">
 							{" "}

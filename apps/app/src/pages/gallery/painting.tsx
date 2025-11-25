@@ -41,7 +41,7 @@ const Paintings = ({
 				<h1 className="text-center  py-2">
 					Paintings and Editioned Prints
 				</h1>
-				<p className="my-10 mx-60 text-center">
+				<p className="my-10 mx-4 sm:mx-20 md:mx-40 lg:mx-60 text-center">
 					All original, one-of-a-kind paintings and photographs are
 					available. Limited and numbered editions of the originals
 					are reproduced as museum quality prints on canvas or paper.
