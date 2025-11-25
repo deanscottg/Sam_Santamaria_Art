@@ -20,8 +20,8 @@ const Navbar = () => {
 					></Image>
 					<span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
 				</Link>
-				<div className="hidden w-full md:block md:w-auto">
-					<ul className="flex flex-col p-4 mt-4 border border-gray-200 rounded-lg md:flex-row md:space-x-6 md:mt-0 md:text-sm md:font-medium md:border-0 bg-transparent">
+				<div className="w-full md:w-auto">
+					<ul className="flex flex-col p-4 mt-4 border border-gray-200 rounded-lg md:flex-row md:space-x-6 md:mt-0 md:text-sm md:font-medium md:border-0 bg-transparent md:bg-transparent bg-white">
 						<motion.button
 							whileHover={{ x: -3 }}
 							className="nav-link-btn flex items-center"

@@ -98,17 +98,17 @@ export const ContactForm = ({ artworks, preselectedArtwork }: ContactFormProps) 
 	if (isSubmitting) return <SubmitLoader />;
 	return (
 		<div className="w-full min-h-screen pt-20">
-			<div className="max-w-2xl mx-auto px-8">
-				<h2 className="text-6xl font-cormorant font-bold text-gray-800 text-center mb-3">
+			<div className="max-w-2xl mx-auto px-4 sm:px-8">
+				<h2 className="text-4xl md:text-6xl font-cormorant font-bold text-gray-800 text-center mb-3">
 					Get in Touch
 				</h2>
-				<p className="text-center text-gray-600 mb-12 font-cormorant text-xl">
+				<p className="text-center text-gray-600 mb-8 md:mb-12 font-cormorant text-lg md:text-xl">
 					Interested in a piece? Have a question? I'd love to hear from you.
 				</p>
 				
 				<form
 					onSubmit={handleSubmit}
-					className="bg-white border-8 border-gray-700 p-10 shadow-xl"
+					className="bg-white border-4 md:border-8 border-gray-700 p-6 md:p-10 shadow-xl"
 				>
 					<Input
 						errors={errors}
