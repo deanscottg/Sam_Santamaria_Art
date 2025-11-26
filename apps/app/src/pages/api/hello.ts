@@ -52,6 +52,7 @@ export default async function handler(
       },
     },
     Source: SENDER_EMAIL,
+    ReplyToAddresses: [data.email],
   };
 
   const emailResponse = await client.send(new SendEmailCommand(paramsForEmail));
