@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import GalleryDropDown from "./GalleryDropDown";
-import slogo from "/public/s-logo.png";
+import slogo from "/public/Logo2.png";
 import { motion, animate, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -13,18 +13,17 @@ const Navbar = () => {
 	return (
 		<nav className="bg-transparent px-2 sm:px-4 py-2">
 			<div className="container flex flex-wrap items-center justify-between mx-auto">
-				<Link href="/" className="flex items-center">
-					<Image
-						src={slogo}
-						alt="s-logo"
-						height={240}
-						width={200}
-						className="h-5 mr-3 sm:h-7"
-					></Image>
-					<span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
-				</Link>
-				
-				{/* Hamburger button for mobile */}
+			<Link href="/" className="flex items-center">
+				<Image
+					src={slogo}
+					alt="s-logo"
+					height={200}
+					width={100}
+					className="h-5 mr-3 sm:h-7"
+					style={{ height: 'auto', width: '100px' }}
+				></Image>
+				<span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
+			</Link>				{/* Hamburger button for mobile */}
 				<button
 					onClick={() => setIsMenuOpen(!isMenuOpen)}
 					className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"

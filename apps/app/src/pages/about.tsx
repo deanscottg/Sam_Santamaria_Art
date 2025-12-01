@@ -11,7 +11,19 @@ const About = () => {
 		<div className="page-container">
 			<h1 className="py-10 text-center">About the Artist</h1>
 			<AboutScrollNav />
-			<div className="py-20 max-w-4xl mx-auto px-6">
+			
+			{/* Artist Photo */}
+			<div className="flex justify-center py-10">
+				<Image
+					src="/SamPic2.png"
+					alt="Sam Santamaria"
+					width={300}
+					height={400}
+					className="shadow-2xl border-[16px] border-white outline outline-2 outline-gray-300"
+				/>
+			</div>
+			
+			<div className="py-6 max-w-4xl mx-auto px-6">
 				<div
 					id="artistStatment"
 					className=" pt-10 text-center border-b-2 border-black"

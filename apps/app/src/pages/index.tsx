@@ -61,16 +61,15 @@ export default function Home({ featuredPaintings }: { featuredPaintings: Feature
 					Currently under contruction check back for further updates!
 				</p>
 			</div>
-			<div className="justify-center flex h-screen pb-16">
-				<Image
-					src="/ArtistImage.jpg"
-					alt="ArtistImage"
-					height={200}
-					width={175}
-					className="pt-12"
-				/>
-
-				{/* <div className='flex  flex-col items-row  rounded-md h-130 w-150 m-sm  justify-center items-center pt-16'>
+		<div className="justify-center flex py-16 mb-16">
+			<Image
+				src="/SamBackground.png"
+				alt="ArtistImage"
+				height={700}
+				width={350}
+				className="shadow-2xl border-[16px] border-white outline outline-2 outline-gray-300"
+				style={{ height: '600px', width: 'auto' }}
+			/>				{/* <div className='flex  flex-col items-row  rounded-md h-130 w-150 m-sm  justify-center items-center pt-16'>
           <FeaturedItems></FeaturedItems>
           <div>
               <p className="text-center py-10">Featured Works</p>
