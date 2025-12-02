@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const Gallery = () => {
 	return (
-		<div className="page-container">
+		<div className="page-container text-black">
 			<div className="py-4 text-center space-y-10">
 				<h1>Gallery</h1>
-				<p className="font-cormorant text-lg">Explore my collection of paintings and photography</p>
+				<p className="font-cormorant font-semibold text-lg">Explore my collection of paintings and photography</p>
 			</div>
 			<div className="flex flex-col md:flex-row items-center justify-center gap-12 p-10 max-w-4xl mx-auto">
 				<Link href="/gallery/painting" className="group">

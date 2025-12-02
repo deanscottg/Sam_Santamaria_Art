@@ -44,8 +44,8 @@ const Photograph = ({
 	photoData: Omit<Photo, "_createdAt" | "_rev" | "_type" | "_updatedAt">[];
 }) => {
 	return (
-		<div className="page-container">
-			<h1 className="font-cormorant">Photo Journeys</h1>
+		<div className="page-container text-black">
+			<h1 className="font-cormorant ">Photo Journeys</h1>
 
 			<div className="art-card-grid">
 				{photoData.map((photo) => {

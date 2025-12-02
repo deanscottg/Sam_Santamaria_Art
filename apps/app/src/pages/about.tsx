@@ -8,10 +8,10 @@ import { motion, animate, AnimatePresence } from "framer-motion";
 const About = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	return (
-		<div className="page-container">
-			<h1 className="py-10 text-center">About the Artist</h1>
+		<div className="page-container text-black">
+			<h1 className="py-10 text-center text-black">About the Artist</h1>
 			<AboutScrollNav />
-			
+
 			{/* Artist Photo */}
 			<div className="flex justify-center py-10">
 				<Image
@@ -22,16 +22,16 @@ const About = () => {
 					className="shadow-2xl border-[16px] border-white outline outline-2 outline-gray-300"
 				/>
 			</div>
-			
+
 			<div className="py-6 max-w-4xl mx-auto px-6">
 				<div
 					id="artistStatment"
 					className=" pt-10 text-center border-b-2 border-black"
 				>
-					<h2 className="text-2xl font-bold italic pt-10 pb-10">
+					<h2 className="text-2xl text-black font-bold italic pt-10 pb-10">
 						Artist Statement
 					</h2>
-					<p className="">
+					<p className="text-black">
 						The fear of water lurks in the mind of one born in the sign of fire.
 						Still, I am fascinated by the enigmas buried in oceanic depths –
 						concealing mysteries to me that are revealed only in small parts as
@@ -44,7 +44,7 @@ const About = () => {
 						blend, or splash frenziedly, I simulate perpetual energy, which I
 						think only a water environment can sustain.
 					</p>
-					<p className="p-8">
+					<p className="p-8 text-black">
 						Rendering other aspects of nature, from the expanse of landscapes to
 						fragments of plant life – always in relation to water – is another
 						facet of my art. I emphasize the interplay of various colors,
@@ -58,10 +58,10 @@ const About = () => {
 					id="artActivities"
 					className=" text-center border-b-2 border-black pb-8"
 				>
-					<h2 className="text-2xl font-bold italic pt-6 pb-10">
+					<h2 className="text-2xl font-bold text-black italic pt-6 pb-10">
 						Art Activities
 					</h2>
-					<p className="p-4">
+					<p className="p-4 text-black">
 						Artprons: Utilitarian Aesthetics, art event (acrylic on canvas,
 						fabric and yarn, photos on canvas) with Sandy and Adrienne
 						Santamaria, Chelsea Hotel, New York City, August 2011
@@ -84,7 +84,9 @@ const About = () => {
 					id="publications"
 					className=" text-center border-b-2 border-black pb-8"
 				>
-					<h2 className="text-2xl font-bold italic pt-6 pb-10">Publications</h2>
+					<h2 className="text-2xl font-bold text-black italic pt-6 pb-10">
+						Publications
+					</h2>
 					<div className="p-4 flex flex-col items-center gap-4">
 						<div className="flex flex-col md:flex-row items-center gap-6 max-w-2xl">
 							<motion.div
@@ -100,7 +102,7 @@ const About = () => {
 								/>
 							</motion.div>
 							<div className="text-left">
-								<p className="font-semibold mb-2">
+								<p className="font-semibold mb-2 text-black">
 									SAILOR MOON - Stories, Poems, Photographs
 								</p>
 								<p className="text-sm text-gray-700 mb-3">
@@ -116,7 +118,7 @@ const About = () => {
 								</Link>
 							</div>
 						</div>
-						<p className="pt-4">
+						<p className="pt-4 font-semibold mb-2 text-black">
 							SARI MANOK – Legend, Art &amp; Haiku Lyric, 48 pp full color, soon
 							to be published
 						</p>

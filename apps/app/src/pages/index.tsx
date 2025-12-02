@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home({ featuredPaintings }: { featuredPaintings: FeaturedPainting[] }) {
 	return (
-		<div>
+		<div className="text-black">
 			<div className="">
 				<h1 className="text-center  py-2">Sam Santamaria Art</h1>
 				<h2 className="text-center font-cormorant font-bold text-3xl">
@@ -69,20 +69,9 @@ export default function Home({ featuredPaintings }: { featuredPaintings: Feature
 				width={350}
 				className="shadow-2xl border-[16px] border-white outline outline-2 outline-gray-300"
 				style={{ height: '600px', width: 'auto' }}
-			/>				{/* <div className='flex  flex-col items-row  rounded-md h-130 w-150 m-sm  justify-center items-center pt-16'>
-          <FeaturedItems></FeaturedItems>
-          <div>
-              <p className="text-center py-10">Featured Works</p>
-
-          </div>
-        // </div>  */}
+			/>				
 			</div>
 
-			{/* <div className="m-0 w-screen bg-white h-40">
-          
-        </div> */}
-
-			{/* <Link  className="btn" href="/gallery">Check out my latest work!</Link> */}
 			<FeaturedItemsBanner featuredPaintings={featuredPaintings} />
 		</div>
 	);
