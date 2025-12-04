@@ -17,10 +17,10 @@ const Navbar = () => {
 				<Image
 					src={slogo}
 					alt="s-logo"
-					height={200}
-					width={100}
+					height={350}
+					width={175}
 					className="h-5 mr-3 sm:h-7"
-					style={{ height: 'auto', width: '100px' }}
+					style={{ height: 'auto', width: '175px' }}
 				></Image>
 				<span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white"></span>
 			</Link>				{/* Hamburger button for mobile */}
